@@ -1,6 +1,6 @@
-### A basic Breakout game that was in the Advanced C++ course on Udemy.
-### I made quite a few changes to clean the code, added features that
-### were not on the original, and various other changes.
+A basic Breakout game that was in the Advanced C++ course on Udemy.
+I made quite a few changes to clean the code, added features that
+were not on the original, and various other changes.
 
 ### Breakout template
 
