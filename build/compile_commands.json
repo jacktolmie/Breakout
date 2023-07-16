@@ -43,5 +43,20 @@
   "directory": "/home/jack/projects/Breakout/build",
   "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/paddle.cpp.o -c /home/jack/projects/Breakout/paddle.cpp",
   "file": "/home/jack/projects/Breakout/paddle.cpp"
+},
+{
+  "directory": "/home/jack/projects/Breakout/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/reset.cpp.o -c /home/jack/projects/Breakout/reset.cpp",
+  "file": "/home/jack/projects/Breakout/reset.cpp"
+},
+{
+  "directory": "/home/jack/projects/Breakout/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/run.cpp.o -c /home/jack/projects/Breakout/run.cpp",
+  "file": "/home/jack/projects/Breakout/run.cpp"
+},
+{
+  "directory": "/home/jack/projects/Breakout/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/set_text.cpp.o -c /home/jack/projects/Breakout/set_text.cpp",
+  "file": "/home/jack/projects/Breakout/set_text.cpp"
 }
 ]

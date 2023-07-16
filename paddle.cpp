@@ -2,7 +2,7 @@
 
 sf::Texture Paddle::texture;
 
-Paddle::Paddle(): Paddle{constants::window_width/2.0f, constants::window_height - constants::paddle_height}{}
+Paddle::Paddle(): Paddle{constants::centre_width, constants::window_height - constants::paddle_height}{}
 
 Paddle::Paddle(float x, float y): Moving_Entity()
 {
@@ -49,7 +49,7 @@ void Paddle::process_player_input() {
 
 void Paddle::paddle_reset() noexcept
 {
-    sprite.setPosition(constants::window_width/2.0f, constants::window_height - constants::paddle_height);
+    sprite.setPosition(constants::centre_width, constants::window_height - constants::paddle_height);
 }
 
 void Paddle::move_up() noexcept{}

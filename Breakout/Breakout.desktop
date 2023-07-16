@@ -1,6 +1,6 @@
 [General]
 # See https://techbase.kde.org/KDevelop5/File_template_specification for documentation
-Name=sfml_testing
+Name=Breakout
 Comment=
 Category=MyCategory/Subcategory
 Type=Other

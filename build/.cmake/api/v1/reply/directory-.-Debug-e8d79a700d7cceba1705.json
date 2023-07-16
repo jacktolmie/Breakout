@@ -35,7 +35,7 @@
 		{
 			"backtrace" : 2,
 			"component" : "Breakout",
-			"destination" : "/home/jack/.local/share/kdevfiletemplates/templates",
+			"destination" : "share/kdevfiletemplates/templates",
 			"paths" : 
 			[
 				"build/Breakout.tar.bz2"

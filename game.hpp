@@ -5,6 +5,7 @@
 #include "ball.hpp"
 #include "constants.hpp"
 #include "entity_manager.hpp"
+#include "interactions.hpp"
 #include "paddle.hpp"
 
 /* A class to manage the entities in the game. It stores the entities
@@ -22,15 +23,19 @@ class Game
     sf::RenderWindow game_window{{constants::window_width, constants::window_height}, "Simple Breakout Game."};
     
     sf::Font verdana;
-    sf::Text text_state, text_lives;
+    sf::Text text_state, text_lives, text_level;
     
     int lives{constants::player_lives};
+    int level{1};
     
     // Enums for game state.
     enum class game_state{paused, running, game_over, player_wins};
     
     // Member to store current state of the game.
     game_state state{game_state::game_over};
+    
+    // Set the text for the game.
+    void set_text();
     
     Paddle* paddle;
     

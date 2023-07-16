@@ -243,7 +243,7 @@ KDE_INSTALL_CMAKEPACKAGEDIR:PATH=
 KDE_INSTALL_CONFDIR:PATH=
 
 //read-only architecture-independent data (DATAROOTDIR)
-KDE_INSTALL_DATADIR:PATH=/home/jack/.local/share
+KDE_INSTALL_DATADIR:PATH=
 
 //read-only architecture-independent data root (share)
 KDE_INSTALL_DATAROOTDIR:PATH=

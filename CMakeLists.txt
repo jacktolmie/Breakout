@@ -32,6 +32,9 @@ game.cpp game.hpp
 interactions.cpp interactions.hpp
 moving_entity.hpp
 paddle.cpp paddle.hpp
+reset.cpp
+run.cpp
+set_text.cpp
 )
 target_link_libraries(Breakout
      -lsfml-graphics
