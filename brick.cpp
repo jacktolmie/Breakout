@@ -104,30 +104,32 @@ void Brick::bricks_reset(Entity_Manager& manager)
     
     std::vector<Brick*> bricks;
     
-    /* Check all of the entities to see which are bricks.
-     * Add bricks to a vector to replace some with stronger
-     * bricks. Change accordingly. */
-    for(auto& brick: manager.get_entities())
-    {
-        if (Brick* test = dynamic_cast<Brick*>(brick.get()))
-        {
-            bricks.emplace_back(test);
-        }
-    }
-        
-    for(size_t i{0}; i < strong_bricks; ++i)
-    {
-        int random_spot{Brick::get_random(0, bricks.size() - 1)};
-        
-        // Check if the brick is already green. If it is get new number.
-        while(!bricks[random_spot]->is_green){
-            random_spot = Brick::get_random(0, bricks.size() - 1);
-        }
-
-        // Change the brick from green to red.
-        bricks[random_spot]->strength = 3;
-        bricks[random_spot]->sprite.setTexture(red_brick);
-        bricks[random_spot]->is_green = false;       
-    }
+    //!!!!!! Something is broken in this code. Fix random bricks.
+    
+//     /* Check all of the entities to see which are bricks.
+//      * Add bricks to a vector to replace some with stronger
+//      * bricks. Change accordingly. */
+//     for(auto& brick: manager.get_entities())
+//     {
+//         if (Brick* test = dynamic_cast<Brick*>(brick.get()))
+//         {
+//             bricks.emplace_back(test);
+//         }
+//     }
+//         
+//     for(size_t i{0}; i < strong_bricks; ++i)
+//     {
+//         int random_spot{Brick::get_random(0, bricks.size() - 1)};
+//         
+//         // Check if the brick is already green. If it is get new number.
+//         while(!bricks[random_spot]->is_green){
+//             random_spot = Brick::get_random(0, bricks.size() - 1);
+//         }
+// 
+//         // Change the brick from green to red.
+//         bricks[random_spot]->strength = 3;
+//         bricks[random_spot]->sprite.setTexture(red_brick);
+//         bricks[random_spot]->is_green = false;       
+//     }
     Brick::update();
 }

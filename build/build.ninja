@@ -79,6 +79,12 @@ build CMakeFiles/Breakout.dir/brick.cpp.o: CXX_COMPILER__Breakout_Debug /home/ja
   OBJECT_DIR = CMakeFiles/Breakout.dir
   OBJECT_FILE_DIR = CMakeFiles/Breakout.dir
 
+build CMakeFiles/Breakout.dir/display_text.cpp.o: CXX_COMPILER__Breakout_Debug /home/jack/projects/Breakout/display_text.cpp || cmake_object_order_depends_target_Breakout
+  DEP_FILE = CMakeFiles/Breakout.dir/display_text.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  OBJECT_DIR = CMakeFiles/Breakout.dir
+  OBJECT_FILE_DIR = CMakeFiles/Breakout.dir
+
 build CMakeFiles/Breakout.dir/entity.cpp.o: CXX_COMPILER__Breakout_Debug /home/jack/projects/Breakout/entity.cpp || cmake_object_order_depends_target_Breakout
   DEP_FILE = CMakeFiles/Breakout.dir/entity.cpp.o.d
   FLAGS = -g -std=gnu++17
@@ -135,7 +141,7 @@ build CMakeFiles/Breakout.dir/set_text.cpp.o: CXX_COMPILER__Breakout_Debug /home
 #############################################
 # Link the executable Breakout
 
-build Breakout: CXX_EXECUTABLE_LINKER__Breakout_Debug CMakeFiles/Breakout.dir/main.cpp.o CMakeFiles/Breakout.dir/background.cpp.o CMakeFiles/Breakout.dir/ball.cpp.o CMakeFiles/Breakout.dir/brick.cpp.o CMakeFiles/Breakout.dir/entity.cpp.o CMakeFiles/Breakout.dir/entity_manager.cpp.o CMakeFiles/Breakout.dir/game.cpp.o CMakeFiles/Breakout.dir/interactions.cpp.o CMakeFiles/Breakout.dir/paddle.cpp.o CMakeFiles/Breakout.dir/reset.cpp.o CMakeFiles/Breakout.dir/run.cpp.o CMakeFiles/Breakout.dir/set_text.cpp.o
+build Breakout: CXX_EXECUTABLE_LINKER__Breakout_Debug CMakeFiles/Breakout.dir/main.cpp.o CMakeFiles/Breakout.dir/background.cpp.o CMakeFiles/Breakout.dir/ball.cpp.o CMakeFiles/Breakout.dir/brick.cpp.o CMakeFiles/Breakout.dir/display_text.cpp.o CMakeFiles/Breakout.dir/entity.cpp.o CMakeFiles/Breakout.dir/entity_manager.cpp.o CMakeFiles/Breakout.dir/game.cpp.o CMakeFiles/Breakout.dir/interactions.cpp.o CMakeFiles/Breakout.dir/paddle.cpp.o CMakeFiles/Breakout.dir/reset.cpp.o CMakeFiles/Breakout.dir/run.cpp.o CMakeFiles/Breakout.dir/set_text.cpp.o
   FLAGS = -g
   LINK_LIBRARIES = -lsfml-graphics  -lsfml-window  -lsfml-system
   OBJECT_DIR = CMakeFiles/Breakout.dir
@@ -220,7 +226,7 @@ build CMakeFiles/Breakout_kapptemplate | ${cmake_ninja_workdir}CMakeFiles/Breako
 # Custom command for Breakout.tar.bz2
 
 build Breakout.tar.bz2 | ${cmake_ninja_workdir}Breakout.tar.bz2: CUSTOM_COMMAND /home/jack/projects/Breakout/Breakout/Breakout.desktop /home/jack/projects/Breakout/Breakout/DemoFile.txt /home/jack/projects/Breakout/Breakout/options.kcfg
-  COMMAND = cd /home/jack/projects/Breakout/Breakout && /usr/bin/tar --exclude .kdev_ignore --exclude .svn --sort=name --mode=go=rX,u+rw,a-s --numeric-owner --owner=0 --group=0 --mtime="@1689524720" --pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime -c -j -f /home/jack/projects/Breakout/build/Breakout.tar.bz2 .
+  COMMAND = cd /home/jack/projects/Breakout/Breakout && /usr/bin/tar --exclude .kdev_ignore --exclude .svn --sort=name --mode=go=rX,u+rw,a-s --numeric-owner --owner=0 --group=0 --mtime="@1689632675" --pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime -c -j -f /home/jack/projects/Breakout/build/Breakout.tar.bz2 .
   DESC = Generating Breakout.tar.bz2
   restat = 1
 

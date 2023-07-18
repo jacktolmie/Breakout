@@ -3,7 +3,7 @@
 
 struct constants {
     static constexpr int    window_width{520};
-    static constexpr int    window_height{550};
+    static constexpr int    window_height{540};
     static constexpr float  centre_width{window_width/2.0f};
     static constexpr float  centre_height{window_height/2.0f};
     
@@ -18,7 +18,7 @@ struct constants {
     static constexpr float  brick_width{43.0f};
     static constexpr float  brick_height{20.0f};
     static constexpr float  brick_offset{brick_width/2.0f};
-    static constexpr int    brick_columns{1}; //{10};
+    static constexpr int    brick_columns{2}; //{10};
     static constexpr int    brick_rows{4};
     static constexpr int    regular_brick_strength{1};
     static constexpr int    strong_brick_strength{3};

@@ -21,13 +21,7 @@ class Game
     * The constructor takes an SFML 2D vector with the window dimensions
     * and a std::string with the window title. */
     sf::RenderWindow game_window{{constants::window_width, constants::window_height}, "Simple Breakout Game."};
-    
-    sf::Font verdana;
-    sf::Text text_state, text_lives, text_level;
-    
-    int lives{constants::player_lives};
-    int level{1};
-    
+
     // Enums for game state.
     enum class game_state{paused, running, game_over, player_wins};
     
@@ -36,6 +30,16 @@ class Game
     
     // Set the text for the game.
     void set_text();
+    
+    // Display the text for the game
+    void display_text();
+    
+    int lives{constants::player_lives};
+    int level{1};
+    sf::RectangleShape text_background;
+
+    sf::Font verdana;
+    sf::Text text_titlebox, text_state, text_lives, text_level;
     
     Paddle* paddle;
     

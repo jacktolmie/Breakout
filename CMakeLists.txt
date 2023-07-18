@@ -26,6 +26,7 @@ background.cpp background.hpp
 ball.cpp ball.hpp
 brick.cpp brick.hpp
 constants.hpp
+display_text.cpp
 entity.cpp entity.hpp
 entity_manager.cpp entity_manager.hpp
 game.cpp game.hpp

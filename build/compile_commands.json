@@ -21,6 +21,11 @@
 },
 {
   "directory": "/home/jack/projects/Breakout/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/display_text.cpp.o -c /home/jack/projects/Breakout/display_text.cpp",
+  "file": "/home/jack/projects/Breakout/display_text.cpp"
+},
+{
+  "directory": "/home/jack/projects/Breakout/build",
   "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/entity.cpp.o -c /home/jack/projects/Breakout/entity.cpp",
   "file": "/home/jack/projects/Breakout/entity.cpp"
 },

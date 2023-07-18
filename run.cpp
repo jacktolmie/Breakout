@@ -6,8 +6,9 @@ void Game::run()
     
     while (game_window.isOpen())
     {
-        game_window.clear(sf::Color::Black);
-        
+        game_window.clear();
+
+        // Create an event to check for close window click.
         sf::Event event;
         
         while (game_window.pollEvent(event))
@@ -16,6 +17,7 @@ void Game::run()
                 game_window.close();
         }
         
+        // Check for various key presses.
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
             break;
         
@@ -39,25 +41,29 @@ void Game::run()
             Game::reset();
         }
         
-        if (state == game_state::paused)
-        {
-            // Display the graphics.
-            manager.draw(game_window);
-        }
+        // if (state == game_state::paused)
+        // {
+        //     // Display the graphics.
+        //     manager.draw(game_window);
+        // }
         
         // If the game is not running, check the state and display on the screen.
         if (state != game_state::running)
         {
             switch (state)
             {
-                case game_state::running:
+                case game_state::paused:
                 {
-                    text_state.setString("   Paused   ");
+                    // If paused, keep the game on the screen.
+                    text_state.setString("Paused");
+                    manager.draw(game_window);
                     break;
                 }
+                
+                // If not paused, have a black screen with text.
                 case game_state::game_over:
                 {
-                    text_state.setString("  Game Over!  ");
+                    text_state.setString("Game Over!");
                     break;
                 }
                 case game_state::player_wins:
@@ -70,11 +76,9 @@ void Game::run()
                     break;
                 }
             }
-            game_window.draw(text_state);
-            game_window.draw(text_lives);
-            game_window.draw(text_level);
+            Game::display_text();
+            // manager.draw(game_window);
         }
-        
         else
         {
             //If no balls remaining on screen.
@@ -93,7 +97,7 @@ void Game::run()
             if (manager.get_all<Brick>().empty())
             {
                 state = game_state::player_wins;
-                
+                std::cout<<"No more bricks\n";
                 // Increase level by one.
                 ++level;
                 
@@ -105,9 +109,7 @@ void Game::run()
             {
                 state = game_state::game_over;
             }
-            
-            text_lives.setString("Lives: " + std::to_string(lives));
-            
+                       
             manager.update();
             
             manager.apply_all<Ball>([this](auto& the_ball){
@@ -125,7 +127,12 @@ void Game::run()
             manager.refresh();
             
             manager.draw(game_window);
+            
+            // Display title bar on top of screen.
+            Game::set_text();
+            Game::display_text();
         }
+
         game_window.display();
     }
 }
