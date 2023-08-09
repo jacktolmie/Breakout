@@ -2,9 +2,10 @@
 #define ENTITY_HPP
 
 #include <SFML/Graphics.hpp>
-#include "constants.hpp"
 #include <string_view>
 #include <iostream>
+#include "constants.hpp"
+#include "variables.hpp"
 
 class Entity{
 protected:

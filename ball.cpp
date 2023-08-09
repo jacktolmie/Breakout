@@ -16,8 +16,33 @@ Ball::Ball(): Moving_Entity()
     sprite.setOrigin(get_centre());
     
     // Call reset() to move ball random downward angle.
-    Ball::ball_reset();
+    Ball::ball_reset(g_level);
 }
+
+float Ball::ball_speed()
+{
+    
+    switch(g_level)
+    {
+        case 1 ... 6:
+        {
+            return constants::ball_speed;
+        }
+        case 7 ... 12:
+        {
+            return constants::ball_speed + 1.0f;
+        }
+        case 13 ... 18:
+        {
+            return constants::ball_speed + 2.0f;
+        }
+        default:
+        {
+            return constants::ball_speed + 4.0f;
+        }
+    }
+}
+
 
 void Ball::update()
 {
@@ -28,7 +53,8 @@ void Ball::update()
         velocity.x = -velocity.x;
     }
 
-    if(y() < 0)
+    // if(y() < 0)
+    if(y() < constants::textbox_height)
     {
         velocity.y = -velocity.y;
     }
@@ -45,39 +71,49 @@ void Ball::draw(sf::RenderWindow& window)
 
 void Ball::move_up() noexcept
 {
-    velocity.y = -constants::ball_speed;
+    velocity.y = -ball_speed();
 }
 
 void Ball::move_down() noexcept
 {
-    velocity.y = constants::ball_speed;
+    velocity.y = ball_speed();
 }
 
 void Ball::move_left() noexcept
 {
-    velocity.x = -constants::ball_speed;
+    velocity.x = -ball_speed();
 }
 
 void Ball::move_right() noexcept
 {
-    velocity.x = constants::ball_speed;
+    velocity.x = ball_speed();
 }
 
-void Ball::ball_reset() noexcept
+void Ball::ball_reset(int level) noexcept
 {
     sprite.setPosition(constants::ball_start_width, constants::ball_start_height);
+    
+    velocity = sf::Vector2f(ball_speed(), ball_speed());
 
     /* A timer to check for even/odd number for direction for the ball to travel
      * when the game starts/resets. Even moves it down/right, odd down/left. */
     time_t timer;
     time(&timer);
-    if (timer % 2 == 0)
-    {
-        Ball::move_down();
-        Ball::move_right();
-    }
-    else
-    {   Ball::move_down();
-        Ball::move_left();
-    }
+    // if (timer % 2 == 0)
+    // {
+    //     Ball::move_down();
+    //     Ball::move_right();
+    // }
+    // else
+    // {   Ball::move_down();
+    //     Ball::move_left();
+    // }
+    Ball::move_down();
+    Ball::move_right();
+    
+}
+
+sf::Sprite & Ball::getSprite()
+{
+    return sprite;
 }

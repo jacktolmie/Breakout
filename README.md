@@ -1,6 +1,14 @@
 A basic Breakout game that was in the Advanced C++ course on Udemy.
-I made quite a few changes to clean the code, added features that
-were not on the original, and various other changes.
+I modified almost all of the code, so this is almost nothing like the actual one from the course. 
+Implemented:
+    * Text box on top to display lives/level.
+    * Row of bricks change depending on the level.
+    * Random stronger bricks are added as level increases.
+    * Added additional colours of bricks according to strength of the brick (red/blue/green).
+    * Speed of ball changes as level increases.
+    * Added additional spin etc to the paddle/ball connection to adjust the trajectory of the ball if paddle is moving when the ball hits it.
+    * Split the Game class into multiple .cpp files.
+    * Various other changes.
 
 ### Breakout template
 

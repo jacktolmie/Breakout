@@ -25,17 +25,21 @@ main.cpp
 background.cpp background.hpp
 ball.cpp ball.hpp
 brick.cpp brick.hpp
+bricks_reset.cpp
 constants.hpp
-display_text.cpp
 entity.cpp entity.hpp
 entity_manager.cpp entity_manager.hpp
 game.cpp game.hpp
+game_state.hpp
+handle_collision.cpp
 interactions.cpp interactions.hpp
 moving_entity.hpp
 paddle.cpp paddle.hpp
+paddle_moves.cpp
 reset.cpp
 run.cpp
-set_text.cpp
+textbox.cpp textbox.hpp
+variables.hpp
 )
 target_link_libraries(Breakout
      -lsfml-graphics

@@ -5,7 +5,7 @@ void Game::run()
     bool paused_key_active{false};
     
     while (game_window.isOpen())
-    {
+    {        
         game_window.clear();
 
         // Create an event to check for close window click.
@@ -15,6 +15,19 @@ void Game::run()
         {
             if (event.type == sf::Event::Closed)
                 game_window.close();
+            
+            // Loop to stop Keyboard events if window is not in focus.
+            while (event.type == sf::Event::LostFocus)
+            {
+                state = game_state::paused;
+                
+                game_window.pollEvent(event);
+                
+                if(event.type == sf::Event::GainedFocus)
+                {
+                    break;
+                }
+            }            
         }
         
         // Check for various key presses.
@@ -41,54 +54,29 @@ void Game::run()
             Game::reset();
         }
         
-        // if (state == game_state::paused)
-        // {
-        //     // Display the graphics.
-        //     manager.draw(game_window);
-        // }
-        
         // If the game is not running, check the state and display on the screen.
         if (state != game_state::running)
         {
-            switch (state)
-            {
-                case game_state::paused:
-                {
-                    // If paused, keep the game on the screen.
-                    text_state.setString("Paused");
-                    manager.draw(game_window);
-                    break;
-                }
-                
-                // If not paused, have a black screen with text.
-                case game_state::game_over:
-                {
-                    text_state.setString("Game Over!");
-                    break;
-                }
-                case game_state::player_wins:
-                {
-                    text_state.setString("Player Wins!");
-                    break;
-                }
-                default:
-                {
-                    break;
-                }
-            }
-            Game::display_text();
-            // manager.draw(game_window);
+            // If game is not running, display state.
+            textbox.set_text();
+            textbox.display_text(game_window, state, manager);
         }
         else
         {
             //If no balls remaining on screen.
             if (manager.get_all<Ball>().empty())
             {
+                // Set ball_missed to true, to reset the paddle size.
+                ball_missed = true;
 
-                paddle->paddle_reset();
-                manager.create<Ball>();
+                // Decrement one life.
+                --g_lives;
                 
-                --lives;
+                /* Reset the paddle to centre, and remove the_ball
+                 * drop_increase sprite if it is on the screen. */
+                paddle->paddle_reset();
+
+                manager.create<Ball>();
                 
                 state = game_state::paused;
             }
@@ -96,16 +84,18 @@ void Game::run()
             // If no bricks on screen.
             if (manager.get_all<Brick>().empty())
             {
-                state = game_state::player_wins;
-                std::cout<<"No more bricks\n";
+                ball_missed = false;
+                
+                // state = game_state::player_wins;
                 // Increase level by one.
-                ++level;
+                ++g_level;
+                ++rows;
                 
                 // Reset the game to next level.
                 Game::reset();
             }
             
-            if (lives <= 0)
+            if (g_lives <= 0)
             {
                 state = game_state::game_over;
             }
@@ -123,14 +113,16 @@ void Game::run()
                     handle_collision(the_ball, the_paddle);
                 });
             });
+
+            handle_collision(paddle);
             
             manager.refresh();
             
             manager.draw(game_window);
             
             // Display title bar on top of screen.
-            Game::set_text();
-            Game::display_text();
+            textbox.set_text();
+            textbox.display_text(game_window, state, manager);
         }
 
         game_window.display();

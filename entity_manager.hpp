@@ -12,9 +12,9 @@ using entity_vector = std::vector<std::unique_ptr<Entity>>;
 using entity_alias_vector = std::vector<Entity*>;
 
 /* A class to manage the entities in the game. It stores the entities
- * in a vdctor of std::unique_ptr. The manager can create and entity
+ * in a vector of std::unique_ptr. The manager can create and entity
  * object and add it to the vector.
- * Exampe: Create a ball object at position (x,y) on the screen.
+ * Example: Create a ball object at position (x,y) on the screen.
  * manager.create<Ball>(x,y); */
 class Entity_Manager
 {
@@ -27,7 +27,7 @@ public:
 template <typename T, typename... Args>
 T& create(Args&&... args)
 {
-    // Check that the type parameter is derived from the eneity base class.
+    // Check that the type parameter is derived from the entity base class.
     static_assert(std::is_base_of<Entity, T>::value, R"("T" type parameter in create() must derive from "Entity" class")");
     
     /* Create a unique_ptr to the entity. Forward the arguments to the

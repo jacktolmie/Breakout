@@ -10,9 +10,13 @@ class Ball: public Moving_Entity
   const float height{constants::window_height/3.5f};
   const float width {constants::centre_width};
   
+  // Adjust the ball speed according to level.
+  float ball_speed();
+  
 public:
   
     Ball();
+    virtual ~Ball() = default;
     
     void update() override;
     void draw(sf::RenderWindow&) override;
@@ -20,6 +24,11 @@ public:
     void move_down() noexcept override;
     void move_left() noexcept override;
     void move_right() noexcept override;
-    void ball_reset() noexcept;
+    
+    // Reset the ball after missing the ball.
+    void ball_reset(int) noexcept;
+    
+    // Return sprite reference for ball interaction.
+    sf::Sprite& getSprite();
 };
 #endif //BALL_HPP

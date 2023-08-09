@@ -53,5 +53,11 @@ void Entity::error(std::string_view image_name)
 }
 
 // Helper functions for the state of the entity
-void Entity::destroy() noexcept { destroyed = true; }
-bool Entity::is_destroyed() const noexcept { return destroyed; }
+void Entity::destroy() noexcept 
+{ 
+    destroyed = true; 
+}
+bool Entity::is_destroyed() const noexcept 
+{ 
+    return destroyed; 
+}

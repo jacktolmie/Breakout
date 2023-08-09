@@ -2,6 +2,7 @@
 #define BRICK_HPP
 
 #include "entity_manager.hpp"
+#include "textbox.hpp"
 
 class Brick: public Entity
 {
@@ -11,23 +12,30 @@ class Brick: public Entity
     static sf::Texture blue_brick;
     static sf::Texture red_brick;
     
-    int         strength{1};
+    int         strength{constants::regular_brick_strength};
     bool        is_green{true};
     
+    //added by me from chatgpt
+    int row; // Variable to store the row of the brick.
+    const Textbox& textbox; // Reference to the Textbox.
+    
 public:
-    Brick(float, float);
-    Brick(Entity_Manager&);
+    Brick(Entity_Manager&, int, const Textbox&);
+    Brick(float x, float y, int row, const Textbox& textbox);
+    virtual ~Brick() = default;
     
     void update() override;
     void draw(sf::RenderWindow&) override;
     
-    void bricks_reset(Entity_Manager&);
+    void bricks_reset(Entity_Manager& manager, int rows, const Textbox& textbox);
     
     // Functions for checking brick strength.
     void weaken() noexcept;
     bool is_too_weak() const noexcept;
     
     int get_random(int, int);
+    
+
     
 };
 #endif // BRICK_HPP

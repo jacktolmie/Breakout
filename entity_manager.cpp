@@ -1,4 +1,3 @@
-// #include "entity_manager.hpp"
 #include "game.hpp"
 
 void Entity_Manager::refresh()

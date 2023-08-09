@@ -21,8 +21,8 @@
 },
 {
   "directory": "/home/jack/projects/Breakout/build",
-  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/display_text.cpp.o -c /home/jack/projects/Breakout/display_text.cpp",
-  "file": "/home/jack/projects/Breakout/display_text.cpp"
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/bricks_reset.cpp.o -c /home/jack/projects/Breakout/bricks_reset.cpp",
+  "file": "/home/jack/projects/Breakout/bricks_reset.cpp"
 },
 {
   "directory": "/home/jack/projects/Breakout/build",
@@ -41,6 +41,11 @@
 },
 {
   "directory": "/home/jack/projects/Breakout/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/handle_collision.cpp.o -c /home/jack/projects/Breakout/handle_collision.cpp",
+  "file": "/home/jack/projects/Breakout/handle_collision.cpp"
+},
+{
+  "directory": "/home/jack/projects/Breakout/build",
   "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/interactions.cpp.o -c /home/jack/projects/Breakout/interactions.cpp",
   "file": "/home/jack/projects/Breakout/interactions.cpp"
 },
@@ -48,6 +53,11 @@
   "directory": "/home/jack/projects/Breakout/build",
   "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/paddle.cpp.o -c /home/jack/projects/Breakout/paddle.cpp",
   "file": "/home/jack/projects/Breakout/paddle.cpp"
+},
+{
+  "directory": "/home/jack/projects/Breakout/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/paddle_moves.cpp.o -c /home/jack/projects/Breakout/paddle_moves.cpp",
+  "file": "/home/jack/projects/Breakout/paddle_moves.cpp"
 },
 {
   "directory": "/home/jack/projects/Breakout/build",
@@ -61,7 +71,7 @@
 },
 {
   "directory": "/home/jack/projects/Breakout/build",
-  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/set_text.cpp.o -c /home/jack/projects/Breakout/set_text.cpp",
-  "file": "/home/jack/projects/Breakout/set_text.cpp"
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/Breakout.dir/textbox.cpp.o -c /home/jack/projects/Breakout/textbox.cpp",
+  "file": "/home/jack/projects/Breakout/textbox.cpp"
 }
 ]
