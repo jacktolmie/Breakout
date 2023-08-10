@@ -84,7 +84,7 @@ void Game::run()
             // If no bricks on screen.
             if (manager.get_all<Brick>().empty())
             {
-                ball_missed = false;
+                // ball_missed = false;
                 
                 // state = game_state::player_wins;
                 // Increase level by one.
