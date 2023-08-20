@@ -238,7 +238,7 @@ build CMakeFiles/Breakout_kapptemplate | ${cmake_ninja_workdir}CMakeFiles/Breako
 # Custom command for Breakout.tar.bz2
 
 build Breakout.tar.bz2 | ${cmake_ninja_workdir}Breakout.tar.bz2: CUSTOM_COMMAND /home/jack/projects/Breakout/Breakout/Breakout.desktop /home/jack/projects/Breakout/Breakout/DemoFile.txt /home/jack/projects/Breakout/Breakout/options.kcfg
-  COMMAND = cd /home/jack/projects/Breakout/Breakout && /usr/bin/tar --exclude .kdev_ignore --exclude .svn --sort=name --mode=go=rX,u+rw,a-s --numeric-owner --owner=0 --group=0 --mtime="@1691705147" --pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime -c -j -f /home/jack/projects/Breakout/build/Breakout.tar.bz2 .
+  COMMAND = cd /home/jack/projects/Breakout/Breakout && /usr/bin/tar --exclude .kdev_ignore --exclude .svn --sort=name --mode=go=rX,u+rw,a-s --numeric-owner --owner=0 --group=0 --mtime="@1691705258" --pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime -c -j -f /home/jack/projects/Breakout/build/Breakout.tar.bz2 .
   DESC = Generating Breakout.tar.bz2
   restat = 1
 

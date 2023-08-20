@@ -28,6 +28,9 @@ public:
     // Reset the ball after missing the ball.
     void ball_reset(int) noexcept;
     
+    // Centre the ball when level completed.
+    void centre_ball();
+    
     // Return sprite reference for ball interaction.
     sf::Sprite& getSprite();
 };

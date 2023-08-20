@@ -6,7 +6,7 @@ sf::Texture Brick::blue_brick;
 sf::Texture Brick::green_brick;
 sf::Texture Brick::red_brick;
 
-Brick::Brick(Entity_Manager& manager, int rows, const Textbox& textbox): textbox{textbox}{Brick::bricks_reset(manager, rows, textbox);}
+Brick::Brick(Entity_Manager& manager, int rows, const Textbox& textbox): textbox{textbox}{} //{/*Brick::bricks_reset(manager, rows, textbox);*/}
 
 Brick::Brick(float x, float y, int row, const Textbox& textbox) : Entity(), row(row), textbox(textbox) 
 {
@@ -25,10 +25,11 @@ Brick::Brick(float x, float y, int row, const Textbox& textbox) : Entity(), row(
     }
     
     float textboxBottom = textbox.y() + textbox.get_bounding_box().height;
-    float brickY = textboxBottom + (row + 3)    *   constants::brick_height;
+    float brickY = textboxBottom + (row + 3) * constants::brick_height;
     sprite.setPosition(x, brickY);
     sprite.setTexture(green_brick);
     sprite.setOrigin(get_centre());
+    
 }
 
 void Brick::weaken() noexcept

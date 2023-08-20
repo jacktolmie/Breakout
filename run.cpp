@@ -62,13 +62,10 @@ void Game::run()
             textbox.display_text(game_window, state, manager);
         }
         else
-        {
-            //If no balls remaining on screen.
+        {               
+            //If no ball remaining on screen.
             if (manager.get_all<Ball>().empty())
             {
-                // Set ball_missed to true, to reset the paddle size.
-                ball_missed = true;
-
                 // Decrement one life.
                 --g_lives;
                 
@@ -84,15 +81,16 @@ void Game::run()
             // If no bricks on screen.
             if (manager.get_all<Brick>().empty())
             {
-                // ball_missed = false;
-                
-                // state = game_state::player_wins;
-                // Increase level by one.
+                // Increase level and rows by one.
                 ++g_level;
                 ++rows;
                 
-                // Reset the game to next level.
-                Game::reset();
+                // Set the game to next level.
+                state = game_state::paused;
+                ball->centre_ball();
+                paddle->centre_paddle();
+                bricks.bricks_reset(manager, rows, textbox);
+
             }
             
             if (g_lives <= 0)
@@ -103,8 +101,8 @@ void Game::run()
             manager.update();
             
             manager.apply_all<Ball>([this](auto& the_ball){
-                manager.apply_all<Brick>([&the_ball](auto& the_brick){
-                    handle_collision(the_ball, the_brick);
+                manager.apply_all<Brick>([&](auto& the_brick){
+                    handle_collision(the_ball, the_brick, paddle);
                 });
             });
             
@@ -123,6 +121,8 @@ void Game::run()
             // Display title bar on top of screen.
             textbox.set_text();
             textbox.display_text(game_window, state, manager);
+            
+            // if(is_hit) paddle->dropIncrease();
         }
 
         game_window.display();

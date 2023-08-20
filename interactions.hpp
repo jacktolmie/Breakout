@@ -16,11 +16,10 @@ bool    is_interacting(const Entity&, const Entity&);
 void    handle_collision(Ball&,  Paddle&);
 
 // Check for potential collision between ball and brick.
-void    handle_collision(Ball&, Brick&);
+void    handle_collision(Ball&, Brick&, Paddle*);
 
 // Check for potential collision between paddle and increase_paddle.
-void handle_collision(Paddle*);
-
+void    handle_collision(Paddle*);
 
 //Added by me from chatgpt
 float   calculateSpinAngle(const sf::Vector2f& paddleVelocity);

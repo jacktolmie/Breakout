@@ -4,9 +4,7 @@ sf::Texture Paddle::paddle;
 sf::Texture Paddle::power1;
 sf::Texture Paddle::power2;
 
-Paddle::Paddle(): Paddle{constants::centre_width, constants::window_height - constants::paddle_height}{}
-
-Paddle::Paddle(float x, float y): Moving_Entity()
+Paddle::Paddle(): Moving_Entity()
 {
     // Load paddle texture.
     if(!paddle.loadFromFile("paddle.png"))
@@ -23,17 +21,6 @@ Paddle::Paddle(float x, float y): Moving_Entity()
     {
         Entity::error("power2.png");
     }    
-    
-    // Set texture for paddle and increase_paddle sprites.
-    sprite.setTexture(paddle);
-    Paddle::scaleTexture();  
-    sprite.setPosition(x, y);
-    sprite.setOrigin(get_centre());
-    increase_paddle.setTexture(power1);
-    increase_paddle.setPosition(constants::centre_height, constants::centre_width);
-
-    // Set paddle speed.
-    velocity = {constants::paddle_speed, 0.0f};
     
     Paddle::paddle_reset();
 }
@@ -62,7 +49,6 @@ void Paddle::draw(sf::RenderWindow& window)
         if(!is_increased)
             window.draw(increase_paddle);
     }
-    
 }
 
 inline float Paddle::getWidth()
@@ -75,12 +61,10 @@ void Paddle::process_player_input()
 {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && x() >= Paddle::getWidth())
     {
-        // velocity.x = -constants::paddle_speed;
         Paddle::move_left();
     }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && x() <= (constants::window_width - Paddle::getWidth()))
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && x() <= constants::window_width - Paddle::getWidth())
     {
-        // velocity.x = constants::paddle_speed;
         Paddle::move_right();
     }
     else
@@ -91,37 +75,27 @@ void Paddle::process_player_input()
 
 void Paddle::paddle_reset() noexcept
 {
+    is_increased = false;
+    
+    // Set texture for paddle and increase_paddle sprites.
+    sprite.setTexture(paddle);
     sprite.setPosition(constants::centre_width, constants::window_height - constants::paddle_height);
-    sprite.setOrigin(get_centre()); //Needed?
-    // Reset the is_increased/is_hit to allow for increase of paddle again after ball loss.
-    if(ball_missed)
-    {
-        is_increased    = false;
-        is_hit          = false;   
-        Paddle::scaleTexture();
-        
-        // Set ball_missed back to false to allow increase_paddle drop.
-        ball_missed = false;
-    }
-    if(is_increased)
-    {
-        is_hit = true;
-        Paddle::scaleTexture();
-    }
+    sprite.setOrigin(get_centre());
+    
+    increase_paddle.setTexture(power1);
+
+    // Set paddle speed.
+    velocity = {constants::paddle_speed, 0.0f};
 }
 
 void Paddle::dropIncrease()
 {
-    // Delete when done? Need to figure out where to add this.
-    is_hit = true; 
-    
     Paddle::move_down();
 }
 
 void Paddle::paddle_increase()
 {
     is_increased = true;
-    Paddle::scaleTexture();
 }
 
 sf::Sprite& Paddle::getIncreaseSprite() 
@@ -137,4 +111,9 @@ sf::Sprite& Paddle::getPaddleSprite()
 inline void Paddle::scaleTexture()
 {
     (is_increased)? sprite.setScale(1.5f, 1.0f): sprite.setScale(1.0f, 1.0f);
+}
+
+void Paddle::centre_paddle()
+{
+    sprite.setPosition(constants::centre_width, constants::window_height - constants::paddle_height);
 }

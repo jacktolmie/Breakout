@@ -37,10 +37,6 @@ public:
     void move_left() noexcept override;
     void move_right() noexcept override;
     
-    // Sends reference to sprites to check boundaries.
-     sf::Sprite& getIncreaseSprite();
-     sf::Sprite& getPaddleSprite();
-    
     // Drop the paddle_increase if the block is hit.
     void dropIncrease();
     
@@ -49,5 +45,13 @@ public:
     
     // Reset the paddle after the ball is missed.
     void paddle_reset() noexcept;
+    
+    void centre_paddle();
+    
+    // Sends reference to sprites to check boundaries.
+     sf::Sprite& getIncreaseSprite();
+     sf::Sprite& getPaddleSprite();
+    
+    
 };
 #endif //PADDLE_HPP

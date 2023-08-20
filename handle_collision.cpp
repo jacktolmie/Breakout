@@ -27,14 +27,22 @@ void handle_collision(Ball& b,  Paddle& p)
     }
 }
 
-void handle_collision(Ball& ball, Brick& brick)
+void handle_collision(Ball& ball, Brick& brick, Paddle* paddle)
 {
     if(is_interacting(brick, ball))
     {
         brick.weaken();
-        
+
         if (brick.is_too_weak())
         {
+            if(brick.will_drop)
+            {
+                is_hit= true;
+
+                paddle->getIncreaseSprite().setPosition(brick.x(), brick.y());
+                paddle->dropIncrease();
+            } 
+
             // The brick is destroyed.
             brick.destroy(); 
         }

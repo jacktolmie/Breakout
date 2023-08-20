@@ -8,3 +8,8 @@ Game::Game()
      // Populate the sprites of the game.
     Game::reset();
 }
+
+Entity_Manager& Game::get_manager()
+{
+    return manager;
+}

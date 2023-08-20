@@ -38,12 +38,6 @@ void Textbox::display_text(sf::RenderWindow& game_window, game_state& state, Ent
                 game_window.draw(text_state);
                 break;
             }
-            case game_state::player_wins:
-            {
-                text_state.setString("Player Wins!");
-                game_window.draw(text_state);
-                break;
-            }
             default:
             {
                 break;
@@ -81,7 +75,6 @@ void Textbox::set_text()
     text_level.setCharacterSize(20);
     text_level.setFillColor(sf::Color::White);
 }
-
 
 void Textbox::draw(sf::RenderWindow& window)
 {

@@ -24,10 +24,13 @@ class Game
     // Member to store current state of the game.
     game_state state{game_state::game_over};
     
+    // Ball and Paddle pointers to reset them when needed.
+    Ball*   ball;
     Paddle* paddle;
     Textbox textbox;
 
     int     rows{constants::brick_rows};
+    Brick   bricks{manager, rows, textbox};
     
 public:
     Game();
@@ -37,5 +40,7 @@ public:
     
     // Game loop.
     void run();
+    
+    Entity_Manager& get_manager();
 };
 #endif // GAME_HPP

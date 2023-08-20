@@ -3,7 +3,7 @@
 
 enum class game_state
 {
-    paused, running, game_over, player_wins
+    paused, running, game_over
 };
 
 #endif // GAME_STATE_HPP

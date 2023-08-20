@@ -2,7 +2,7 @@
 
 void Brick::bricks_reset(Entity_Manager& manager, int rows, const Textbox& textbox)
 {        
-    int total_rows{(rows <= constants::brick_max_rows)? rows : 6};
+    int total_rows{(rows < constants::brick_max_rows)? rows : 6};
     
     // Thanks to Chatgpt for helping me with solving the bricks below the textbox fix.
     for (int i{0}; i < constants::brick_columns; ++i)
@@ -11,6 +11,7 @@ void Brick::bricks_reset(Entity_Manager& manager, int rows, const Textbox& textb
         float x = constants::brick_offset + (i + 1) * constants::brick_width;
         // Use the row number j to set the correct position for the brick.
         float y = (j + 1) * constants::brick_height;
+
         manager.create<Brick>(x, y, j, textbox);
         }
     }
@@ -25,11 +26,11 @@ void Brick::bricks_reset(Entity_Manager& manager, int rows, const Textbox& textb
         
         /* Check all of the entities to see which are bricks.
         * Add bricks to a vector to replace some with stronger
-        * bricks. Change accordingly. */
+        * bricks.*/
         for(auto& brick: manager.get_entities())
         {
             if (Brick* test = dynamic_cast<Brick*>(brick.get()))
-            {
+            {   
                 bricks.emplace_back(test);
             }
         }
@@ -37,6 +38,13 @@ void Brick::bricks_reset(Entity_Manager& manager, int rows, const Textbox& textb
         for(size_t i{0}; i < strong_bricks; ++i)
         {
             int random_spot{Brick::get_random(0, bricks.size() - 1)};
+            
+            if(g_level > 5 && !will_drop && !is_increased)
+            {
+                bricks[random_spot]->will_drop = true; // Find a way to set this to one random brick.
+                will_drop = true;
+                std::cout<<"will_drop is true\n";
+            }
             
             // Check if the brick is already green. If it is get new number.
             while(!bricks[random_spot]->is_green){

@@ -3,6 +3,7 @@
 
 #include "entity_manager.hpp"
 #include "textbox.hpp"
+#include "paddle.hpp"
 
 class Brick: public Entity
 {
@@ -12,12 +13,17 @@ class Brick: public Entity
     static sf::Texture blue_brick;
     static sf::Texture red_brick;
     
-    int         strength{constants::regular_brick_strength};
-    bool        is_green{true};
+    int     strength{constants::regular_brick_strength};
+    bool    is_green{true};
     
     //added by me from chatgpt
     int row; // Variable to store the row of the brick.
-    const Textbox& textbox; // Reference to the Textbox.
+    
+    // Reference to the Textbox.
+    const Textbox& textbox; 
+    
+
+    
     
 public:
     Brick(Entity_Manager&, int, const Textbox&);
@@ -33,9 +39,10 @@ public:
     void weaken() noexcept;
     bool is_too_weak() const noexcept;
     
-    int get_random(int, int);
+    int  get_random(int, int);
     
-
+    bool will_drop{false};
+    
     
 };
 #endif // BRICK_HPP

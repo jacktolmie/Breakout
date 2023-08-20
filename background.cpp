@@ -18,10 +18,8 @@ Background::Background(float x, float y): Entity() {
     sprite.setPosition(x, y);
 }
 
-// Compoute the background's new position.
-void Background::update() {
-    
-}
+// Compute the background's new position.
+void Background::update() {}
 
 void Background::draw(sf::RenderWindow& window) {
     // Ask the window to draw the sprite.
