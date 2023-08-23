@@ -1,6 +1,6 @@
 A basic Breakout game that was in the Advanced C++ course on Udemy.
 I modified almost all of the code, so this is almost nothing like the actual one from the course. 
-Implemented:
+Code that I added:
 <ul>
     <li>Text box on top to display lives/level.</li>
     <li>Row of bricks change depending on the level.</li>
