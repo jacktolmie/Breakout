@@ -5,6 +5,9 @@
 ### Unused images ###
 junk_images/
 
+### Ignore build folder
+build/
+
 # Prerequisites
 *.d
 
