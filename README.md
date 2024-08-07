@@ -1,4 +1,4 @@
-<img src="./Breakout.png" alt="Picture of Breakout game">
+<img src="Images/Breakout.png" alt="Picture of Breakout game">
 A basic Breakout game that was in the Advanced C++ course on Udemy.
 I modified almost all of the code, so this is nothing like the actual one from the course. 
 Code that I added:
