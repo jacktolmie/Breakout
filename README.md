@@ -20,7 +20,7 @@ To install the required files on Debian/Ubuntu systems run:
 ```bash
 sudo apt update
 sudo apt upgrade -y
-apt install cmake g++ extra-cmake-modules xorg-dev libudev-dev libopenal-dev libvorbis-dev libflac-dev libsfml-dev
+sudo apt install cmake g++ extra-cmake-modules xorg-dev libudev-dev libopenal-dev libvorbis-dev libflac-dev libsfml-dev
 ```
 This template is packaged using CMake.
 To build it you can run:
