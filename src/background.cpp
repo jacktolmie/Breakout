@@ -6,7 +6,7 @@ Background::Background(): Background{0.0f, 0.0f}{}
 
 Background::Background(float x, float y): Entity() {
     // Load the texture file.
-    if(!texture.loadFromFile("Images/Breakout.png"))
+    if(!texture.loadFromFile("Images/background.jpg"))
     {
         Entity::error("background.jpg");
     }

@@ -2,20 +2,14 @@
 
 Textbox::Textbox(): Entity()
 {
-    //Load font.
-    if(!font.loadFromFile("NotoSans-Black.ttf")){
-        Entity::error("NotoSans-Black.ttf");
-    }
 /* Load font from system. Check if Windows or Linux. */
-// #ifdef linux
-//     // verdana.loadFromFile("/usr/share/fonts/truetype/msttcorefonts/verdana.ttf");
-//     font.loadFromFile("NotoSans-Black.ttf");
-// #endif
-//
-// #ifdef _WIN32
-//     // verdana.loadFromFile("C:/Windows/fonts/Verdana.ttf");
-//     font.loadFromFile("C:/Windows/fonts/Verdana.ttf");
-// #endif
+#ifdef linux
+    font.loadFromFile("NotoSans-Black.ttf");
+#endif
+
+#ifdef _WIN32
+    font.loadFromFile("C:/Windows/fonts/Verdana.ttf");
+#endif
 }
 
 void Textbox::display_text(sf::RenderWindow& game_window, game_state& state, Entity_Manager& manager)
@@ -59,7 +53,6 @@ void Textbox::set_text()
     text_background.setSize(sf::Vector2f(constants::window_width, constants::window_top));
     
     // Set and centre game's state.
-    // text_state.setFont(verdana);
     text_state.setFont(font);
     text_state.setString("Paused");
     text_state.setPosition(constants::centre_width - (text_state.getGlobalBounds().width/2.0f), constants::centre_height);
@@ -67,7 +60,6 @@ void Textbox::set_text()
     text_state.setFillColor(sf::Color::White);
     
     // Set 'lives' text and place top left of screen.
-    // text_lives.setFont(verdana);
     text_lives.setFont(font);
     text_lives.setStyle(text_lives.Italic);
     text_lives.setString("Lives: " + std::to_string(g_lives));
@@ -76,7 +68,6 @@ void Textbox::set_text()
     text_lives.setFillColor(sf::Color::White);
     
     // Set 'level' text and place top right of screen.
-    // text_level.setFont(verdana);
     text_level.setFont(font);
     text_level.setStyle(text_level.Italic);
     text_level.setString("Level: " + std::to_string(g_level));
