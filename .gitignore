@@ -3,7 +3,7 @@
 .kdev4/
 
 ### Unused images ###
-junk_images/
+junk_Images/
 
 ### Ignore build folder
 build/
