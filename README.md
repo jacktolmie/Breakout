@@ -30,6 +30,7 @@ sudo dnf install cmake g++ extra-cmake-modules libX11-devel mesa-libGLU-devel li
 This template is packaged using CMake.
 To build it you can run:
 ```bash
+cd Breakout
 mkdir -p build
 cmake -B build
 cmake --build build
@@ -43,10 +44,3 @@ To clean it, run this command in the build directory:
 ```bash
 cmake --build build --target clean
 ```
-
-It you want to create multiple templates you can add new directories to the root
-of this project and add them to the template package macro:  
-```cmake
-kde_package_app_templates(TEMPLATES "Breakout" "mysecondtemplate" INSTALL_DIR ...)
-```
-
