@@ -60,6 +60,7 @@ target_link_libraries(Breakout
 )
 
 include_directories(${CMAKE_SOURCE_DIR})
+include_directories(/usr/include/freetype2 -I/usr/local/include/freetype2 -I/usr/include/libpng16)
 
 if(WIN32)
     add_custom_command(

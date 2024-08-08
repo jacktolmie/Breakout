@@ -16,11 +16,16 @@ Code that I added:
 
 
 ### Breakout template
-To install the required files on Debian/Ubuntu systems run:
+To install the required files on Debian/Ubuntu systems, run:
 ```bash
 sudo apt update
 sudo apt upgrade -y
 sudo apt install cmake g++ extra-cmake-modules xorg-dev libudev-dev libopenal-dev libvorbis-dev libflac-dev libsfml-dev
+```
+To install on Fedora systems, run:
+```bash
+sudo dnf update
+sudo dnf install cmake g++ extra-cmake-modules libX11-devel mesa-libGLU-devel libudev-devel openal-soft-devel libvorbis-devel flac-devel SFML-devel libXrandr-devel libXcursor-devel
 ```
 This template is packaged using CMake.
 To build it you can run:
